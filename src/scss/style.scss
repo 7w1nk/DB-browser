@@ -1,0 +1,31 @@
+$color-h1: blue;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: $color-h1;
+}
+
+.root {
+  background: url("../img/logo.png");
+  width: 600px;
+  height: 600px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #333;
+    color: white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #ddd;
+    color: black;
+  }
+}
