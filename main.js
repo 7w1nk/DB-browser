@@ -1,5 +1,6 @@
-const {app, BrowserWindow, Menu} = require('electron')
+const { app, BrowserWindow, Menu, globalShortcut, remote } = require('electron');
 const path = require("path");
+const url = require('url');
 const {setupTitlebar, attachTitlebarToWindow} = require('custom-electron-titlebar/main');
 setupTitlebar();
 const isDev = !app.isPackaged;
@@ -15,8 +16,9 @@ const createWindow = () => {
         },
         show: false,
         titleBarStyle: 'hidden',
-        icon: path.resolve(__dirname, 'src', 'img', 'logo.png')
+        icon: path.join(__dirname, 'dist', 'logo.png'),
     });
+
 
     const menu = Menu.buildFromTemplate(exampleMenuTemplate());
     Menu.setApplicationMenu(menu);
@@ -24,6 +26,12 @@ const createWindow = () => {
     mainWindow.loadFile(path.resolve(__dirname, 'dist', 'index.html')).then();
 
     mainWindow.once('ready-to-show', mainWindow.show);
+
+    if (process.platform === 'darwin') {
+        globalShortcut.register('Command+Q', () => {
+            app.quit();
+        });
+    }
 
     mainWindow.on('close', () => mainWindow = null)
     attachTitlebarToWindow(mainWindow);
@@ -34,6 +42,12 @@ if (isDev) {
         electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
     })
 }
+
+app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+})
 app.whenReady().then(() => {
     createWindow();
     app.on('activate', () => {
@@ -52,122 +66,7 @@ const exampleMenuTemplate = () => [
             {
                 label: "Quit",
                 click: () => app.quit()
-            },
-            {
-                label: "Radio1",
-                type: "radio",
-                checked: true
-            },
-            {
-                label: "Radio2",
-                type: "radio",
-            },
-            {
-                label: "Checkbox1",
-                type: "checkbox",
-                checked: true,
-                click: (item) => {
-                    console.log("item is checked? " + item.checked);
-                }
-            },
-            {type: "separator"},
-            {
-                label: "Checkbox2",
-                type: "checkbox",
-                checked: false,
-                click: (item) => {
-                    console.log("item is checked? " + item.checked);
-                }
             }
-        ]
-    },
-    {
-        label: "Advanced Options",
-        submenu: [
-            {
-                label: "Quit",
-                click: () => app.quit()
-            },
-            {
-                label: "Radio1",
-                type: "radio",
-                checked: true
-            },
-            {
-                label: "Radio2",
-                type: "radio",
-            },
-            {
-                label: "Checkbox1",
-                type: "checkbox",
-                checked: true,
-                click: (item) => {
-                    console.log("item is checked? " + item.checked);
-                }
-            },
-            {type: "separator"},
-            {
-                label: "Checkbox2",
-                type: "checkbox",
-                checked: false,
-                click: (item) => {
-                    console.log("item is checked? " + item.checked);
-                }
-            },
-            {
-                label: "Radio Test",
-                submenu: [
-                    {
-                        label: "Sample Checkbox",
-                        type: "checkbox",
-                        checked: true
-                    },
-                    {
-                        label: "Radio1",
-                        checked: true,
-                        type: "radio"
-                    },
-                    {
-                        label: "Radio2",
-                        type: "radio"
-                    },
-                    {
-                        label: "Radio3",
-                        type: "radio"
-                    },
-                    {type: "separator"},
-                    {
-                        label: "Radio1",
-                        checked: true,
-                        type: "radio"
-                    },
-                    {
-                        label: "Radio2",
-                        type: "radio"
-                    },
-                    {
-                        label: "Radio3",
-                        type: "radio"
-                    }
-                ]
-            },
-            {
-                label: "zoomIn",
-                role: "zoomIn"
-            },
-            {
-                label: "zoomOut",
-                role: "zoomOut"
-            },
-            {
-                label: "Radio1",
-                type: "radio"
-            },
-            {
-                label: "Radio2",
-                checked: true,
-                type: "radio"
-            },
         ]
     },
     {

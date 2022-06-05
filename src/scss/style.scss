@@ -1,19 +1,33 @@
-$color-h1: blue;
+.constainer{
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: $containere_padding;
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+  h1{
+    font-size: $fontSize_h1;
+    text-align: center;
+    margin-bottom: $margin;
+  }
 
-h1 {
-  color: $color-h1;
-}
+  h2{
+    font-size: $fontSize_h2;
+    text-align: center;
+  }
 
-.root {
-  background: url("../img/logo.png");
-  width: 600px;
-  height: 600px;
+  .connection{
+    display: flex;
+    flex-direction: column;
+    bd1-s-
+    
+    &_list{
+      
+    }
+  }
+
 }
 
 @media (prefers-color-scheme: dark) {

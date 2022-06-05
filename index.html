@@ -1,14 +1,48 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DBrowser for SQL</title>
 </head>
+
 <body>
-<h2>Hello</h2>
-<script src="./renderer.js"></script>
+    <div class="constainer">
+        <div class="description">
+            <h1>Welcome to DBrowser for SQL</h1>
+            <h2>DBrowser for SQL is graphical user interface tool for MySQL. This project is designed to view
+                information
+                from a database</h2>
+        </div>
+        <div class="connection">
+            <div class="connection_list">
+                <label for="conName">Connection name:</label>
+                <input type="text" name="conName" id="conName">
+                <span>Type a name for the connection.</span>
+            </div>
+            <div class="connection_list">
+                <label for="hostName">Hostname:</label>
+                <input type="text" name="hostName" id="hostName">
+                <label for="portName">Port:</label>
+                <input type="text" name="portName" id="portName">
+                <span>IP adress of the server host and TCP/IP port.</span>
+            </div>
+            <div class="connection_list">
+                <label for="userName">Username:</label>
+                <input type="text" name="userName" id="userName">
+                <span>Name of the user connection.</span>
+            </div>
+            <div class="connection_list">
+                <label for="passName">Password:</label>
+                <input type="password" name="passName" id="passName">
+                <span>The user's passord. Will be requested later if it's not set..</span>
+            </div>
+        </div>
+    </div>
+    <script src="./renderer.js"></script>
 </body>
+
 </html>

@@ -5,9 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "set NODE_ENV=production&& webpack --config webpack.config.js --watch",
-    "dev": "set NODE_ENV=development&& webpack --config webpack.config.js",
-    "prod": "set NODE_ENV=production&& webpack --config webpack.config.js"
+    "watch": "cross-env NODE_ENV=production webpack --config webpack.config.js --watch",
+    "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "prod": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "Papushev Alexandr <alepap2311@yandex.ru>",
@@ -26,6 +26,7 @@
     "css-loader": "^6.7.1",
     "custom-electron-titlebar": "^4.1.0",
     "electron": "^19.0.1",
+    "electron-builder": "^23.0.3",
     "electron-reload": "^2.0.0-alpha.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",

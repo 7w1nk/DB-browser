@@ -1,9 +1,14 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const path = require('path');
 
 const modeWork = process.env.NODE_ENV === "production" ? "production" : "development";
 const isDev = modeWork === "development"
+console.log(process.env.NODE_ENV);
+console.log(modeWork);
+console.log(isDev);
 
 module.exports = {
     mode: modeWork,
