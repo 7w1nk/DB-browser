@@ -1,5 +1,8 @@
-.constainer{
+#root{
   min-height: 100%;
+}
+.container{
+  min-height: calc(100vh - 28px);
   width: 100%;
   display: flex;
   align-items: center;
@@ -18,28 +21,56 @@
     text-align: center;
   }
 
-  .connection{
+  .button{
     display: flex;
-    flex-direction: column;
-    bd1-s-
-    
-    &_list{
-      
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: $paddingButton;
+    cursor: pointer;
+    transition: all .5s;
+    @media (prefers-color-scheme: dark) {
+      border: 2px solid $white;
+    }
+    @media (prefers-color-scheme: light) {
+      border: 2px solid $black;
+    }
+    span{
+      text-align: center;
+    }
+
+    &:hover{
+      transform: translateY(-10px);
+      @media (prefers-color-scheme: dark) {
+        background-color: $white;
+        color: $grey;
+        box-shadow: 0 10px 10px rgba(255, 255, 255,.5);
+      }
+      @media (prefers-color-scheme: light) {
+        box-shadow: 0 10px 10px rgba(0, 0, 0,.5);
+        background-color: $black;
+        color: $white;
+      }
     }
   }
-
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #333;
-    color: white;
+    background:$grey;
+    color: $white;
+    a{
+      color: $white;
+    }
   }
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    background: #ddd;
-    color: black;
+    background: $light-grey;
+    color: $black;
+    a{
+      color: $black;
+    }
   }
 }

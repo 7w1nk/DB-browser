@@ -44,8 +44,18 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: "asset/resource"
-            }
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/img/[name].[hash].[ext]'
+                }
+            },
+            {
+                test: /\.csv$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/csv/[name].[ext]'
+                }
+              }
         ]
     },
     plugins: [
@@ -58,11 +68,7 @@ module.exports = {
             filename: 'assets/css/[name].[hash].css'
         })
     ],
-    resolve: {
-        extensions: ['.js']
-    },
     output: {
-        assetModuleFilename: "assets/img/[hash][ext][query]",
         clean: true
     }
 };
