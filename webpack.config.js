@@ -55,7 +55,7 @@ module.exports = {
                 options: {
                     name: 'assets/csv/[name].[ext]'
                 }
-              }
+            }
         ]
     },
     plugins: [
@@ -68,6 +68,9 @@ module.exports = {
             filename: 'assets/css/[name].[hash].css'
         })
     ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     output: {
         clean: true
     }

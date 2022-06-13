@@ -1,76 +1,76 @@
-#root{
-  min-height: 100%;
+#root {
+    min-height: 100%;
 }
-.container{
-  min-height: calc(100vh - 28px);
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  padding: $containere_padding;
 
-  h1{
-    font-size: $fontSize_h1;
-    text-align: center;
-    margin-bottom: $margin;
-  }
-
-  h2{
-    font-size: $fontSize_h2;
-    text-align: center;
-  }
-
-  .button{
+.container {
+    min-height: calc(100vh - 28px);
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: $paddingButton;
-    cursor: pointer;
-    transition: all .5s;
-    @media (prefers-color-scheme: dark) {
-      border: 2px solid $white;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: $containere_padding;
+    h1 {
+        font-size: $fontSize_h1;
+        text-align: center;
+        margin-bottom: $margin;
     }
-    @media (prefers-color-scheme: light) {
-      border: 2px solid $black;
+    h2 {
+        font-size: $fontSize_h2;
+        text-align: center;
     }
-    span{
-      text-align: center;
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        padding: $paddingButton;
+        cursor: pointer;
+        transition: all .5s;
+        @media (prefers-color-scheme: dark) {
+            color: $white;
+            background-color: $grey;
+            border: 2px solid $white;
+        }
+        @media (prefers-color-scheme: light) {
+            background-color: $light-grey;
+            border: 2px solid $black;
+        }
+        span {
+            text-align: center;
+        }
+        &:hover {
+            transform: translateY(-10px);
+            @media (prefers-color-scheme: dark) {
+                background-color: $white;
+                color: $grey;
+                box-shadow: 0 10px 10px rgba(255, 255, 255, .5);
+            }
+            @media (prefers-color-scheme: light) {
+                box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+                background-color: $black;
+                color: $white;
+            }
+        }
     }
-
-    &:hover{
-      transform: translateY(-10px);
-      @media (prefers-color-scheme: dark) {
-        background-color: $white;
-        color: $grey;
-        box-shadow: 0 10px 10px rgba(255, 255, 255,.5);
-      }
-      @media (prefers-color-scheme: light) {
-        box-shadow: 0 10px 10px rgba(0, 0, 0,.5);
-        background-color: $black;
-        color: $white;
-      }
-    }
-  }
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background:$grey;
-    color: $white;
-    a{
-      color: $white;
+    body {
+        background: $grey;
+        color: $white;
+        a {
+            color: $white;
+        }
     }
-  }
 }
 
 @media (prefers-color-scheme: light) {
-  body {
-    background: $light-grey;
-    color: $black;
-    a{
-      color: $black;
+    body {
+        background: $light-grey;
+        color: $black;
+        a {
+            color: $black;
+        }
     }
-  }
 }
