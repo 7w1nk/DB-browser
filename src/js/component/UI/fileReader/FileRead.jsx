@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import * as XLSX from 'xlsx';
 import DataTable from 'react-data-table-component';
 
 import FileInput from '../file-input/FileInput'
+import MyButton from '../button/Button';
 
 const FileRead = () => {
   const [columns, setColumns] = useState([]);
@@ -80,14 +82,12 @@ const FileRead = () => {
     return isDarkTheme;
   }
   const isDarkTheme = useThemeDetector();
-
   const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
   const paginationComponentOptions = {
     selectAllRowsItem: true,
     selectAllRowsItemText: 'All',
   };
-  console.log(data);
-  console.log(columns);
+
   return (
     <div className='box'>
       <h1>Read CSV, XLS, XLSX file</h1>
@@ -100,6 +100,7 @@ const FileRead = () => {
         data={data}
         defaultSortFieldId={1}
         expandableRows
+        responsive
         expandableRowsComponent={ExpandedComponent}
         theme={isDarkTheme ? "dark" : "light"}
       />

@@ -7,7 +7,8 @@
         "start": "electron .",
         "watch": "cross-env NODE_ENV=production webpack --config webpack.config.js --watch",
         "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-        "prod": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+        "prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+        "pack": "electron-packager ."
     },
     "keywords": [],
     "author": "Papushev Alexandr <alepap2311@yandex.ru>",
@@ -28,6 +29,7 @@
         "custom-electron-titlebar": "^4.1.0",
         "electron": "^19.0.1",
         "electron-builder": "^23.0.3",
+        "electron-packager": "^15.5.1",
         "electron-reload": "^2.0.0-alpha.1",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.5.0",
@@ -38,6 +40,7 @@
         "sass": "^1.52.1",
         "sass-loader": "^13.0.0",
         "style-loader": "^3.3.1",
+        "styled-components": "^5.3.5",
         "webpack": "^5.72.1",
         "webpack-cli": "^4.9.2",
         "xlsx": "^0.18.5"
