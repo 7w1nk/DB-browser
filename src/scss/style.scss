@@ -14,10 +14,24 @@
         font-size: $fontSize_h1;
         text-align: center;
         margin-bottom: $margin;
+        user-select: none;
     }
     h2 {
         font-size: $fontSize_h2;
         text-align: center;
+        user-select: none;
+        a {
+            display: inline-flex;
+            padding: 2px 5px 4px;
+            @media (prefers-color-scheme: dark) {
+                background-color: $light-grey;
+                color: $grey;
+            }
+            @media (prefers-color-scheme: light) {
+                background-color: $grey;
+                color: $light-grey;
+            }
+        }
     }
     .button {
         display: flex;
@@ -27,6 +41,8 @@
         padding: $paddingButton;
         cursor: pointer;
         transition: all .5s;
+        user-select: none;
+        margin: $margin-ver;
         @media (prefers-color-scheme: dark) {
             color: $white;
             background-color: $grey;
@@ -37,6 +53,7 @@
             border: 2px solid $black;
         }
         span {
+            user-select: none;
             text-align: center;
         }
         &:hover {

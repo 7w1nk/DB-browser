@@ -1,7 +1,7 @@
 const { app, BrowserWindow, Menu, globalShortcut, remote } = require('electron');
 const path = require("path");
 const url = require('url');
-const {setupTitlebar, attachTitlebarToWindow} = require('custom-electron-titlebar/main');
+const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
 setupTitlebar();
 const isDev = !app.isPackaged;
 
@@ -27,12 +27,6 @@ const createWindow = () => {
 
     mainWindow.once('ready-to-show', mainWindow.show);
 
-    if (process.platform === 'darwin') {
-        globalShortcut.register('Command+Q', () => {
-            app.quit();
-        });
-    }
-
     mainWindow.on('close', () => mainWindow = null)
     attachTitlebarToWindow(mainWindow);
 };
@@ -45,9 +39,10 @@ if (isDev) {
 
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
+        createWindow()
+    };
 })
+
 app.whenReady().then(() => {
     createWindow();
     app.on('activate', () => {
@@ -59,26 +54,23 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 })
 
-const exampleMenuTemplate = () => [
-    {
+const exampleMenuTemplate = () => [{
         label: "Simple Options",
-        submenu: [
-            {
-                label: "Quit",
-                click: () => app.quit()
-            }
-        ]
+        submenu: [{
+            label: "Quit",
+            click: () => app.quit()
+        }]
     },
     {
         label: "View",
         submenu: [
-            {role: "reload"},
-            {role: "forceReload"},
-            {type: "separator"},
-            {role: "zoomIn"},
-            {role: "zoomOut"},
-            {role: "resetZoom"},
-            {role: "toggleDevTools"}
+            { role: "reload" },
+            { role: "forceReload" },
+            { type: "separator" },
+            { role: "zoomIn" },
+            { role: "zoomOut" },
+            { role: "resetZoom" },
+            { role: "toggleDevTools" }
         ],
     }
 ];

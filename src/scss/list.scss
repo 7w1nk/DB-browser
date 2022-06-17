@@ -1,0 +1,59 @@
+    .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        max-width: 100%;
+        input[type=file] {
+            display: flex;
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        label.button {
+            display: flex;
+            width: max-content;
+            align-items: center;
+            justify-content: center;
+            span {
+                display: flex;
+                margin-left: 10px;
+            }
+        }
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        body {
+            .box {
+                &>label {
+                    transition: all .5s;
+                    path {
+                        fill: $white;
+                    }
+                    &:hover {
+                        path {
+                            fill: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @media (prefers-color-scheme: light) {
+        body {
+            .box {
+                label {
+                    path {
+                        fill: $black;
+                    }
+                    &:hover {
+                        path {
+                            fill: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }

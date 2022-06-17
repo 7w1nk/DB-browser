@@ -6,30 +6,28 @@ const path = require('path');
 
 const modeWork = process.env.NODE_ENV === "production" ? "production" : "development";
 const isDev = modeWork === "development"
-console.log(process.env.NODE_ENV);
 console.log(modeWork);
-console.log(isDev);
 
 module.exports = {
     mode: modeWork,
-    entry: "./src/js/index.js",
+    entry: "./src/js/index.jsx",
     devtool: 'inline-source-map',
     target: 'electron-renderer',
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: [[
-                            '@babel/preset-env', {
-                                targets: {
-                                    esmodules: true
+                        presets: [
+                            [
+                                '@babel/preset-env', {
+                                    targets: {
+                                        esmodules: true
+                                    }
                                 }
-                            }
-                        ],
+                            ],
                             '@babel/preset-react'
                         ]
                     }

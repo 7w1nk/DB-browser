@@ -1,10 +1,14 @@
-$fontfamily: Georgia, Times, "Times New Roman", serif;
+$fontfamily: Georgia,
+Times,
+"Times New Roman",
+serif;
 $fontSizeBig: 40px;
 $fontSizeMedium: 20px;
 $fontSizeStandart: 14px;
 $margin: 20px;
 $marginPar: 15px 0;
 $margin-0-5: 0 5px;
+$margin-10-0: 10px 0;
 $padding1: 20px;
 $padding2: 5px 10px;
 $paddingButton: 14px 20px;
@@ -12,11 +16,10 @@ $white:#fff;
 $black: #000;
 $grey: #333;
 $light-grey: #ddd;
-
 $fontSize_h1: $fontSizeBig;
 $fontSize_h2: $fontSizeMedium;
-
 $containere_padding: $padding1;
 $marginPar_list: $marginPar;
 $borderColor_light: $white;
 $borderColor_dark: $black;
+$margin-ver:$margin-10-0;
