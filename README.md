@@ -5,7 +5,7 @@ Diplom work of SUAI student Alexander Papushev.
 Для сборки требуется [node.js и npm](https://nodejs.org/en/)
 
 ### Сборка
-Установить зависимости:  
+Следует перейти в корень проекта, установить зависимости:  
 ```
 npm install
 ```  
