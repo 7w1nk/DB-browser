@@ -1,5 +1,5 @@
 {
-    "name": "diplom",
+    "name": "DBrowser",
     "version": "1.0.0",
     "description": "",
     "main": "main.js",
@@ -8,7 +8,8 @@
         "watch": "cross-env NODE_ENV=production webpack --config webpack.config.js --watch",
         "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
         "prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-        "pack": "electron-packager ."
+        "pack": "electron-packager . --platform=win32 --overwrite --arch=x64 --prune --icon=logo.ico",
+        "pack:dar": "electron-packager .  --overwrite --prune --icon=dist/logo.ico"
     },
     "keywords": [],
     "author": "Papushev Alexandr <alepap2311@yandex.ru>",

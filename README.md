@@ -2,7 +2,7 @@
 Diplom work of SUAI student Alexander Papushev.
 
 ### Требования
-Для сборки требуется node.js и npm
+Для сборки требуется [node.js и npm](https://nodejs.org/en/)
 
 ### Сборка
 Установить зависимости:  

@@ -41,7 +41,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
                 loader: 'file-loader',
                 options: {
                     name: 'assets/img/[name].[hash].[ext]'
@@ -60,7 +60,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
             template: "./index.html",
-            favicon: "./src/img/logo.png"
+            favicon: "./src/img/logo.ico"
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].[hash].css'
