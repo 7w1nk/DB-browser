@@ -1,14 +1,13 @@
-const { app, BrowserWindow, Menu, globalShortcut, remote } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require("path");
-const url = require('url');
 const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
 setupTitlebar();
 const isDev = !app.isPackaged;
 
 const createWindow = () => {
     let mainWindow = new BrowserWindow({
-        width: 1200,
-        height: 800,
+        width: 1280,
+        height: 1024,
         minWidth: 800,
         minHeight: 350,
         webPreferences: {
@@ -56,10 +55,19 @@ app.on('window-all-closed', () => {
 
 const exampleMenuTemplate = () => [{
         label: "Simple Options",
-        submenu: [{
-            label: "Quit",
-            click: () => app.quit()
-        }]
+        submenu: [
+            {
+                label: "Quit",
+                click: () => app.quit()
+            },
+            {
+                type: "separator"
+            },
+            {
+                label:"New window",
+                click: () => createWindow()
+            }
+            ]
     },
     {
         label: "View",
