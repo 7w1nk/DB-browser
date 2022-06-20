@@ -1,3 +1,5 @@
 node_modules
 dist
 DB-browser
+.idea
+DBrowser-win32-x64
