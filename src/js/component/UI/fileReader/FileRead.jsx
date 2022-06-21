@@ -32,10 +32,10 @@ const FileRead = () => {
 
   const [processData, isListLoading, listError] = useFetching(async (dataString) => {
     const dataStringLines = await dataString.split(/\r\n|\n/);
-    const headers = await dataStringLines[0].split(selectedDel ===','?(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/):(/;(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/));
+    const headers = await dataStringLines[0].split(selectedDel ===';'?(/;(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/):(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/));
     const list = [];
     for (let i = 1; i < dataStringLines.length; i++) {
-      const row = await dataStringLines[i].split(selectedDel ===','?(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/):(/;(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/));
+      const row = await dataStringLines[i].split(selectedDel ===';'?(/;(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/):(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/));
       if (headers && row.length === headers.length) {
         const obj = {};
         for (let j = 0; j < headers.length; j++) {

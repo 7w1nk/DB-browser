@@ -1,7 +1,7 @@
 {
     "name": "DBrowser",
     "version": "1.0.0",
-    "description": "",
+    "description": "Diplom work for reading CSV files",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
